@@ -1,0 +1,161 @@
+﻿@model IEnumerable<FinanceKpi.Models.Asset>
+
+@{
+    ViewBag.Title = "固定资产";
+}
+
+<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TaskID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AppDepartment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FixedAssetId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EduCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keeper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Responsibler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FundingAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UseDirection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentSource)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SupplyCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTaxFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaskID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AppDepartment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FixedAssetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EduCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keeper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsibler)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FundingAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UseDirection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentSource)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplyCompany)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTaxFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+        </td>
+    </tr>
+}
+
+</table>

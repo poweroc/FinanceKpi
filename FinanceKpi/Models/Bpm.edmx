@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BPMDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BPMInstProcSteps">
+          <Key>
+            <PropertyRef Name="StepID" />
+          </Key>
+          <Property Name="StepID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskID" Type="int" Nullable="false" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NodeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="OwnerAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReceiveAt" Type="datetime" Nullable="false" />
+          <Property Name="FinishAt" Type="datetime" />
+          <Property Name="SelAction" Type="nvarchar" MaxLength="30" />
+          <Property Name="Share" Type="bit" Nullable="false" />
+          <Property Name="Memo" Type="nvarchar" MaxLength="200" />
+          <Property Name="HumanStep" Type="bit" Nullable="false" />
+          <Property Name="AgentAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="HandlerAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubNodeName" Type="nvarchar" MaxLength="30" />
+          <Property Name="AutoProcess" Type="bit" Nullable="false" />
+          <Property Name="Comments" Type="ntext" />
+          <Property Name="UsedMinutes" Type="int" />
+          <Property Name="UsedMinutesWork" Type="int" />
+          <Property Name="RecedeFromStep" Type="int" />
+          <Property Name="TimeoutNotifyCount" Type="int" Nullable="false" />
+          <Property Name="RisedConsignID" Type="int" />
+          <Property Name="BelongConsignID" Type="int" />
+          <Property Name="ConsignOwnerAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="TimeoutFirstNotifyDate" Type="datetime" />
+          <Property Name="TimeoutDeadline" Type="datetime" />
+          <Property Name="StandardMinutesWork" Type="int" />
+          <Property Name="BatchApprove" Type="bit" Nullable="false" />
+          <Property Name="Posted" Type="bit" Nullable="false" />
+          <Property Name="FormSaved" Type="bit" Nullable="false" />
+          <Property Name="ParentStepID" Type="int" />
+          <Property Name="NodePath" Type="nvarchar" MaxLength="200" />
+          <Property Name="ExtYear" Type="int" />
+          <Property Name="ExtStepYear" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="ExtRecipient" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
+          <Property Name="ExtDeleted" Type="bit" Nullable="false" />
+          <Property Name="OwnerPositionID" Type="int" />
+          <Property Name="ProcessVersion" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BPMInstTasks">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="OwnerAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateAt" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="FinishAt" Type="datetime" />
+          <Property Name="State" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="AgentAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="SerialNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="OptUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="OptAt" Type="datetime" />
+          <Property Name="OptMemo" Type="nvarchar" MaxLength="50" />
+          <Property Name="FormDataSetID" Type="int" />
+          <Property Name="ExtYear" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="ExtInitiator" Type="nvarchar" MaxLength="50" StoreGeneratedPattern="Computed" />
+          <Property Name="ExtDeleted" Type="bit" StoreGeneratedPattern="Computed" />
+          <Property Name="OwnerPositionID" Type="int" />
+          <Property Name="ParentTaskID" Type="int" />
+          <Property Name="ParentStepID" Type="int" />
+          <Property Name="ParentStepName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProcessVersion" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ParentServerIdentity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReturnToParent" Type="bit" />
+        </EntityType>
+        <EntityType Name="BPMSysUsers">
+          <Key>
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Account" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="SysUser" Type="bit" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sex" Type="char" MaxLength="7" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="HRID" Type="nvarchar" MaxLength="30" />
+          <Property Name="DateHired" Type="datetime" />
+          <Property Name="Office" Type="nvarchar" MaxLength="100" />
+          <Property Name="CostCenter" Type="nvarchar" MaxLength="30" />
+          <Property Name="OfficePhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="HomePhone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="30" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="WWWHomePage" Type="nvarchar" MaxLength="200" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="UserLevel" Type="int" />
+          <Property Name="家庭电话" Type="nvarchar" MaxLength="50" />
+          <Property Name="SID" Type="char" MaxLength="36" Nullable="false" />
+          <Property Name="LogonProvider" Type="nvarchar" MaxLength="30" />
+          <Property Name="Disabled" Type="bit" Nullable="false" />
+          <Property Name="NameSpell" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractDept" Type="nvarchar" MaxLength="50" />
+          <Property Name="Url" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsBinding" Type="nvarchar" MaxLength="10" />
+          <Property Name="Secretary" Type="nvarchar" MaxLength="50" />
+          <Property Name="Others" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="iAsset">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="int" Nullable="false" />
+          <Property Name="FormNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Account" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgentAccount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="AppLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="FundingAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalAmount" Type="money" />
+          <Property Name="UseDirection" Type="nvarchar" MaxLength="50" />
+          <Property Name="EquipmentSource" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="SupplyCompany" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsTaxFee" Type="int" />
+          <Property Name="InvoiceNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FactoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FactoryNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FactoryDate" Type="date" />
+          <Property Name="ArgumentNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Performance" Type="nvarchar" MaxLength="50" />
+          <Property Name="Applicability" Type="nvarchar" MaxLength="50" />
+          <Property Name="Feature" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attachment" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+          <Property Name="BusinessCode" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="iAssetDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskID" Type="int" />
+          <Property Name="FixedAssetId" Type="varchar" MaxLength="64" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Specification" Type="nvarchar" MaxLength="500" />
+          <Property Name="Type" Type="nvarchar" MaxLength="500" />
+          <Property Name="Department" Type="nvarchar" MaxLength="500" />
+          <Property Name="DepartmentCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="500" />
+          <Property Name="PurchaseDate" Type="date" />
+          <Property Name="EduCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Count" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="KeeperAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Keeper" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResponsiblerAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Responsibler" Type="nvarchar" MaxLength="50" />
+          <Property Name="FeeSourceName" Type="nvarchar" MaxLength="200" />
+          <Property Name="FeeSourceCode" Type="varchar" MaxLength="50" />
+          <Property Name="FeeSourceCodeName" Type="nvarchar" MaxLength="200" />
+          <Property Name="FixedFundCode" Type="varchar" MaxLength="50" />
+          <Property Name="AccumulationItem" Type="varchar" MaxLength="50" />
+          <Property Name="AccountCode" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BPMDBModelStoreContainer">
+          <EntitySet Name="BPMInstProcSteps" EntityType="Self.BPMInstProcSteps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BPMInstTasks" EntityType="Self.BPMInstTasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BPMSysUsers" EntityType="Self.BPMSysUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iAsset" EntityType="Self.iAsset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iAssetDetail" EntityType="Self.iAssetDetail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BPMDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BPMInstProcSteps">
+          <Key>
+            <PropertyRef Name="StepID" />
+          </Key>
+          <Property Name="StepID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskID" Type="Int32" Nullable="false" />
+          <Property Name="ProcessName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NodeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OwnerAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiveAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FinishAt" Type="DateTime" Precision="3" />
+          <Property Name="SelAction" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Share" Type="Boolean" Nullable="false" />
+          <Property Name="Memo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HumanStep" Type="Boolean" Nullable="false" />
+          <Property Name="AgentAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HandlerAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubNodeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="AutoProcess" Type="Boolean" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UsedMinutes" Type="Int32" />
+          <Property Name="UsedMinutesWork" Type="Int32" />
+          <Property Name="RecedeFromStep" Type="Int32" />
+          <Property Name="TimeoutNotifyCount" Type="Int32" Nullable="false" />
+          <Property Name="RisedConsignID" Type="Int32" />
+          <Property Name="BelongConsignID" Type="Int32" />
+          <Property Name="ConsignOwnerAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeoutFirstNotifyDate" Type="DateTime" Precision="3" />
+          <Property Name="TimeoutDeadline" Type="DateTime" Precision="3" />
+          <Property Name="StandardMinutesWork" Type="Int32" />
+          <Property Name="BatchApprove" Type="Boolean" Nullable="false" />
+          <Property Name="Posted" Type="Boolean" Nullable="false" />
+          <Property Name="FormSaved" Type="Boolean" Nullable="false" />
+          <Property Name="ParentStepID" Type="Int32" />
+          <Property Name="NodePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ExtYear" Type="Int32" />
+          <Property Name="ExtStepYear" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ExtRecipient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ExtDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="OwnerPositionID" Type="Int32" />
+          <Property Name="ProcessVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BPMInstTasks">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OwnerAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="FinishAt" Type="DateTime" Precision="3" />
+          <Property Name="State" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AgentAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OptUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OptAt" Type="DateTime" Precision="3" />
+          <Property Name="OptMemo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormDataSetID" Type="Int32" />
+          <Property Name="ExtYear" Type="Int32" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ExtInitiator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ExtDeleted" Type="Boolean" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="OwnerPositionID" Type="Int32" />
+          <Property Name="ParentTaskID" Type="Int32" />
+          <Property Name="ParentStepID" Type="Int32" />
+          <Property Name="ParentStepName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentServerIdentity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReturnToParent" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="BPMSysUsers">
+          <Key>
+            <PropertyRef Name="Account" />
+          </Key>
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SysUser" Type="Boolean" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="HRID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="DateHired" Type="DateTime" Precision="3" />
+          <Property Name="Office" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CostCenter" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OfficePhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HomePhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="WWWHomePage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="UserLevel" Type="Int32" />
+          <Property Name="家庭电话" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SID" Type="String" MaxLength="36" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LogonProvider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Disabled" Type="Boolean" Nullable="false" />
+          <Property Name="NameSpell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContractDept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsBinding" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Secretary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Others" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BPMDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BPMInstProcSteps" EntityType="Self.BPMInstProcSteps" />
+          <EntitySet Name="BPMInstTasks" EntityType="Self.BPMInstTasks" />
+          <EntitySet Name="BPMSysUsers" EntityType="Self.BPMSysUsers" />
+          <EntitySet Name="iAssetDetail" EntityType="BPMDBModel.iAssetDetail" />
+          <EntitySet Name="iAsset" EntityType="BPMDBModel.iAsset" />
+        </EntityContainer>
+        <EntityType Name="iAssetDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskID" Type="Int32" />
+          <Property Name="FixedAssetId" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Specification" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+          <Property Name="EduCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="KeeperAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Keeper" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResponsiblerAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Responsibler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FeeSourceName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FeeSourceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FeeSourceCodeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FixedFundCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccumulationItem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="iAsset">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="Int32" Nullable="false" />
+          <Property Name="FormNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgentAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="AppLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FundingAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UseDirection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EquipmentSource" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SupplyCompany" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsTaxFee" Type="Int32" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryDate" Type="DateTime" Precision="0" />
+          <Property Name="ArgumentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Performance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Applicability" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Feature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attachment" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="BusinessCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BPMDBModelStoreContainer" CdmEntityContainer="BPMDBEntities">
+          <EntitySetMapping Name="BPMInstProcSteps">
+            <EntityTypeMapping TypeName="BPMDBModel.BPMInstProcSteps">
+              <MappingFragment StoreEntitySet="BPMInstProcSteps">
+                <ScalarProperty Name="StepID" ColumnName="StepID" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="NodeName" ColumnName="NodeName" />
+                <ScalarProperty Name="OwnerAccount" ColumnName="OwnerAccount" />
+                <ScalarProperty Name="ReceiveAt" ColumnName="ReceiveAt" />
+                <ScalarProperty Name="FinishAt" ColumnName="FinishAt" />
+                <ScalarProperty Name="SelAction" ColumnName="SelAction" />
+                <ScalarProperty Name="Share" ColumnName="Share" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="HumanStep" ColumnName="HumanStep" />
+                <ScalarProperty Name="AgentAccount" ColumnName="AgentAccount" />
+                <ScalarProperty Name="HandlerAccount" ColumnName="HandlerAccount" />
+                <ScalarProperty Name="SubNodeName" ColumnName="SubNodeName" />
+                <ScalarProperty Name="AutoProcess" ColumnName="AutoProcess" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="UsedMinutes" ColumnName="UsedMinutes" />
+                <ScalarProperty Name="UsedMinutesWork" ColumnName="UsedMinutesWork" />
+                <ScalarProperty Name="RecedeFromStep" ColumnName="RecedeFromStep" />
+                <ScalarProperty Name="TimeoutNotifyCount" ColumnName="TimeoutNotifyCount" />
+                <ScalarProperty Name="RisedConsignID" ColumnName="RisedConsignID" />
+                <ScalarProperty Name="BelongConsignID" ColumnName="BelongConsignID" />
+                <ScalarProperty Name="ConsignOwnerAccount" ColumnName="ConsignOwnerAccount" />
+                <ScalarProperty Name="TimeoutFirstNotifyDate" ColumnName="TimeoutFirstNotifyDate" />
+                <ScalarProperty Name="TimeoutDeadline" ColumnName="TimeoutDeadline" />
+                <ScalarProperty Name="StandardMinutesWork" ColumnName="StandardMinutesWork" />
+                <ScalarProperty Name="BatchApprove" ColumnName="BatchApprove" />
+                <ScalarProperty Name="Posted" ColumnName="Posted" />
+                <ScalarProperty Name="FormSaved" ColumnName="FormSaved" />
+                <ScalarProperty Name="ParentStepID" ColumnName="ParentStepID" />
+                <ScalarProperty Name="NodePath" ColumnName="NodePath" />
+                <ScalarProperty Name="ExtYear" ColumnName="ExtYear" />
+                <ScalarProperty Name="ExtStepYear" ColumnName="ExtStepYear" />
+                <ScalarProperty Name="ExtRecipient" ColumnName="ExtRecipient" />
+                <ScalarProperty Name="ExtDeleted" ColumnName="ExtDeleted" />
+                <ScalarProperty Name="OwnerPositionID" ColumnName="OwnerPositionID" />
+                <ScalarProperty Name="ProcessVersion" ColumnName="ProcessVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BPMInstTasks">
+            <EntityTypeMapping TypeName="BPMDBModel.BPMInstTasks">
+              <MappingFragment StoreEntitySet="BPMInstTasks">
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="OwnerAccount" ColumnName="OwnerAccount" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FinishAt" ColumnName="FinishAt" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="AgentAccount" ColumnName="AgentAccount" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="OptUser" ColumnName="OptUser" />
+                <ScalarProperty Name="OptAt" ColumnName="OptAt" />
+                <ScalarProperty Name="OptMemo" ColumnName="OptMemo" />
+                <ScalarProperty Name="FormDataSetID" ColumnName="FormDataSetID" />
+                <ScalarProperty Name="ExtYear" ColumnName="ExtYear" />
+                <ScalarProperty Name="ExtInitiator" ColumnName="ExtInitiator" />
+                <ScalarProperty Name="ExtDeleted" ColumnName="ExtDeleted" />
+                <ScalarProperty Name="OwnerPositionID" ColumnName="OwnerPositionID" />
+                <ScalarProperty Name="ParentTaskID" ColumnName="ParentTaskID" />
+                <ScalarProperty Name="ParentStepID" ColumnName="ParentStepID" />
+                <ScalarProperty Name="ParentStepName" ColumnName="ParentStepName" />
+                <ScalarProperty Name="ProcessVersion" ColumnName="ProcessVersion" />
+                <ScalarProperty Name="ParentServerIdentity" ColumnName="ParentServerIdentity" />
+                <ScalarProperty Name="ReturnToParent" ColumnName="ReturnToParent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BPMSysUsers">
+            <EntityTypeMapping TypeName="BPMDBModel.BPMSysUsers">
+              <MappingFragment StoreEntitySet="BPMSysUsers">
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="SysUser" ColumnName="SysUser" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="HRID" ColumnName="HRID" />
+                <ScalarProperty Name="DateHired" ColumnName="DateHired" />
+                <ScalarProperty Name="Office" ColumnName="Office" />
+                <ScalarProperty Name="CostCenter" ColumnName="CostCenter" />
+                <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="WWWHomePage" ColumnName="WWWHomePage" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+                <ScalarProperty Name="家庭电话" ColumnName="家庭电话" />
+                <ScalarProperty Name="SID" ColumnName="SID" />
+                <ScalarProperty Name="LogonProvider" ColumnName="LogonProvider" />
+                <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+                <ScalarProperty Name="NameSpell" ColumnName="NameSpell" />
+                <ScalarProperty Name="ContractDept" ColumnName="ContractDept" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="IsBinding" ColumnName="IsBinding" />
+                <ScalarProperty Name="Secretary" ColumnName="Secretary" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iAssetDetail">
+            <EntityTypeMapping TypeName="BPMDBModel.iAssetDetail">
+              <MappingFragment StoreEntitySet="iAssetDetail">
+                <ScalarProperty Name="AccountCode" ColumnName="AccountCode" />
+                <ScalarProperty Name="AccumulationItem" ColumnName="AccumulationItem" />
+                <ScalarProperty Name="FixedFundCode" ColumnName="FixedFundCode" />
+                <ScalarProperty Name="FeeSourceCodeName" ColumnName="FeeSourceCodeName" />
+                <ScalarProperty Name="FeeSourceCode" ColumnName="FeeSourceCode" />
+                <ScalarProperty Name="FeeSourceName" ColumnName="FeeSourceName" />
+                <ScalarProperty Name="Responsibler" ColumnName="Responsibler" />
+                <ScalarProperty Name="ResponsiblerAccount" ColumnName="ResponsiblerAccount" />
+                <ScalarProperty Name="Keeper" ColumnName="Keeper" />
+                <ScalarProperty Name="KeeperAccount" ColumnName="KeeperAccount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="FinCode" ColumnName="FinCode" />
+                <ScalarProperty Name="EduCode" ColumnName="EduCode" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FixedAssetId" ColumnName="FixedAssetId" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iAsset">
+            <EntityTypeMapping TypeName="BPMDBModel.iAsset">
+              <MappingFragment StoreEntitySet="iAsset">
+                <ScalarProperty Name="BusinessCode" ColumnName="BusinessCode" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="Feature" ColumnName="Feature" />
+                <ScalarProperty Name="Applicability" ColumnName="Applicability" />
+                <ScalarProperty Name="Performance" ColumnName="Performance" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ArgumentNumber" ColumnName="ArgumentNumber" />
+                <ScalarProperty Name="FactoryDate" ColumnName="FactoryDate" />
+                <ScalarProperty Name="FactoryNumber" ColumnName="FactoryNumber" />
+                <ScalarProperty Name="FactoryName" ColumnName="FactoryName" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="IsTaxFee" ColumnName="IsTaxFee" />
+                <ScalarProperty Name="SupplyCompany" ColumnName="SupplyCompany" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="EquipmentSource" ColumnName="EquipmentSource" />
+                <ScalarProperty Name="UseDirection" ColumnName="UseDirection" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="FundingAccount" ColumnName="FundingAccount" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="AgentPosition" ColumnName="AgentPosition" />
+                <ScalarProperty Name="AgentDepartment" ColumnName="AgentDepartment" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="AppPosition" ColumnName="AppPosition" />
+                <ScalarProperty Name="AppDepartment" ColumnName="AppDepartment" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="AppLevel" ColumnName="AppLevel" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AgentAccount" ColumnName="AgentAccount" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="FormNo" ColumnName="FormNo" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

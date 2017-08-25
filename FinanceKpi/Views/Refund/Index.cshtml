@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_rootLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "退单率";
+}
+
+@model System.Collections.IEnumerable
+
+@using (Html.BeginForm("Query", "Refund", FormMethod.Post))
+{
+    <div>
+        <Label style="display: inline-block">起始日期</Label>
+        <div style="display: inline-block">
+            @Html.DevExpress().DateEdit(settings =>
+            {
+                settings.Name = "StartDate";
+                settings.Properties.DisplayFormatString = "D";
+                settings.Date = (DateTime) Session["StartDate"];
+            }).GetHtml()
+        </div>
+        <Label style="display: inline-block">截止日期</Label>
+        <div style="display: inline-block">
+            @Html.DevExpress().DateEdit(settings =>
+            {
+                settings.Name = "EndDate";
+                settings.Properties.DisplayFormatString = "D";
+                settings.Date = (DateTime) Session["EndDate"];
+            }).GetHtml()
+        </div>
+        <div style="display: inline-block">
+            @Html.DevExpress().Button(settings =>
+            {
+                settings.Name = "QueryButton";
+                settings.Text = "查询";
+                settings.UseSubmitBehavior = true;
+            }).GetHtml()
+        </div>
+    </div>
+}
+
+@Html.Partial("GridViewPartialView", Model)
