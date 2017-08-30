@@ -1,5 +1,10 @@
 @using DevExpress.Data
+@using FinanceKpi.Models
 @* DXCOMMENT: Configure GridView *@
+@{
+    int sum = 0;
+}
+    
 @Html.DevExpress().GridView(
     settings =>
     {
@@ -23,8 +28,28 @@
         settings.Columns.Add("Refunding");
         settings.Columns.Add("Refunded");
 
-        settings.GroupSummary.Add(SummaryItemType.Count, "Refunding");
-        settings.GroupSummary.Add(SummaryItemType.Count, "Refunded");
-        //settings.GroupSummary.Add(SummaryItemType.Custom, )
+        settings.GroupSummary.Add(SummaryItemType.Count, "ProcessName").DisplayFormat = "流程数 = {0}";
+        settings.GroupSummary.Add(new ASPxSummaryItem{SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "1", DisplayFormat = "退单量 = {0}"});
 
+        settings.CustomSummaryCalculate = (sender, e) =>
+        {
+            //var view = sender as MVCxGridView;
+            if (e.SummaryProcess == CustomSummaryProcess.Start)
+            {
+                sum = 0;
+            }
+            if (e.SummaryProcess == CustomSummaryProcess.Calculate)
+            {
+                //var refunding = view.GetRowValues(e.RowHandle, "Refunding");// "退单";//view.rows.Rows[e.RowHandle].Cells[3].Text;
+                var refund = e.Row as Refund;
+                if (refund != null && refund.Refunding.Equals("退单"))
+                {
+                    ++sum;
+                }
+            }
+            if (e.SummaryProcess == CustomSummaryProcess.Finalize)
+            {
+                e.TotalValue = sum;
+            }
+        };
     }).Bind(Model).GetHtml()
