@@ -1,8 +1,16 @@
 @using DevExpress.Data
+@using DevExpress.XtraSpreadsheet.Model
 @using FinanceKpi.Models
 @* DXCOMMENT: Configure GridView *@
 @{
-    int sum = 0;
+    List<int> processes = new List<int>();
+    int refundingCount = 0;
+    int refundedCount = 0;
+    int i3 = 0;
+    int i4 = 0;
+    var processCountList = new List<int>();
+    var refundingCountList = new List<int>();
+    var refundedCountList = new List<int>();
 }
     
 @Html.DevExpress().GridView(
@@ -15,41 +23,147 @@
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
         settings.SettingsPager.PageSize = 50;
         settings.Settings.VerticalScrollBarMode = ScrollBarMode.Visible;
-        settings.Settings.VerticalScrollableHeight = 750;
+        settings.Settings.VerticalScrollableHeight = 700;
         settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFooter = true;
+        settings.Settings.ShowHeaderFilterButton = true;
         settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
         settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
         settings.ControlStyle.BorderBottom.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
 
         // DXCOMMENT: Configure grid's columns in accordance with data model fields
-        settings.Columns.Add("ProcessName");
-        settings.Columns.Add("FinAccount");
-        settings.Columns.Add("ReceiveTime");
-        settings.Columns.Add("Refunding");
-        settings.Columns.Add("Refunded");
-
-        settings.GroupSummary.Add(SummaryItemType.Count, "ProcessName").DisplayFormat = "流程数 = {0}";
-        settings.GroupSummary.Add(new ASPxSummaryItem{SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "1", DisplayFormat = "退单量 = {0}"});
-
-        settings.CustomSummaryCalculate = (sender, e) =>
+        settings.Columns.Add(column =>
         {
-            //var view = sender as MVCxGridView;
+            column.FieldName = "TaskID";
+            column.SortOrder = ColumnSortOrder.Ascending;
+            column.SortIndex = 0;
+        });
+        settings.Columns.Add("ProcessName").Caption = "流程名";
+        settings.Columns.Add("FinAccount").Caption = "处理人";
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ReceiveTime";
+            column.Caption = "收到时间";
+            column.SortOrder = ColumnSortOrder.Ascending;
+            column.SortIndex = 1;
+        });
+        settings.Columns.Add("Refunding").Caption = "退单";
+        settings.Columns.Add("Refunded").Caption = "被退";
+
+        settings.TotalSummary.Add(SummaryItemType.Count, "ProcessName").DisplayFormat = "总处理次数: {0}";
+        var taskCountTotalItem = new ASPxSummaryItem { SummaryType = SummaryItemType.Custom, FieldName = "TaskID", Tag = "10", DisplayFormat = "总流程数量: {0}" };
+        settings.TotalSummary.Add(taskCountTotalItem);
+        settings.TotalSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "11", DisplayFormat = "退单次数: {0}"});
+        settings.TotalSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunded", Tag = "12", DisplayFormat = "被退次数: {0}"});
+
+        var taskCountGroupItem = new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "TaskID", Tag = "0", DisplayFormat = "流程数量: {0}"};
+        settings.GroupSummary.Add(taskCountGroupItem);
+        settings.GroupSummary.Add(SummaryItemType.Count, "ProcessName").DisplayFormat = "处理次数: {0}";
+        settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "1", DisplayFormat = "退单次数: {0}"});
+        settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunded", Tag = "2", DisplayFormat = "被退次数: {0}"});
+        settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "3", DisplayFormat = "退单率: {0:P}"});
+        settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunded", Tag = "4", DisplayFormat = "被退率: {0:P}"});
+
+        settings.BeforeColumnSortingGrouping += (sender, e) =>
+        {
+            processCountList.Clear();
+            refundedCountList.Clear();
+            refundingCountList.Clear();
+            i3 = 0;
+            i4 = 0;
+        };
+
+        settings.CustomSummaryCalculate += (sender, e) =>
+        {
+            var asPxSummaryItem = e.Item as ASPxSummaryItem;
+            if (asPxSummaryItem == null)
+            {
+                return;
+            }
+            int tag = Convert.ToInt32(asPxSummaryItem.Tag);
             if (e.SummaryProcess == CustomSummaryProcess.Start)
             {
-                sum = 0;
+                switch (tag)
+                {
+                    case 0:
+                    case 10:
+                        processes.Clear();
+                        break;
+                    case 1:
+                    case 11:
+                        refundingCount = 0;
+                        break;
+                    case 2:
+                    case 12:
+                        refundedCount = 0;
+                        break;
+                }
             }
             if (e.SummaryProcess == CustomSummaryProcess.Calculate)
             {
-                //var refunding = view.GetRowValues(e.RowHandle, "Refunding");// "退单";//view.rows.Rows[e.RowHandle].Cells[3].Text;
                 var refund = e.Row as Refund;
-                if (refund != null && refund.Refunding.Equals("退单"))
+                if (refund == null)
                 {
-                    ++sum;
+                    return;
+                }
+
+                switch (tag)
+                {
+                    case 0:
+                    case 10:
+                        if (!processes.Contains(refund.TaskID))
+                        {
+                            processes.Add(refund.TaskID);
+                        }
+                        break;
+                    case 1:
+                    case 11:
+                        if (e.FieldValue.Equals("退单"))
+                        {
+                            ++refundingCount;
+                        }
+                        break;
+                    case 2:
+                    case 12:
+                        if (e.FieldValue.Equals("被退"))
+                        {
+                            ++refundedCount;
+                        }
+                        break;
                 }
             }
             if (e.SummaryProcess == CustomSummaryProcess.Finalize)
             {
-                e.TotalValue = sum;
+                switch (tag)
+                {
+                    case 0:
+                    case 10:
+                        e.TotalValue = processes.Count;
+                        processCountList.Add(processes.Count);
+                        break;
+                    case 1:
+                        e.TotalValue = refundingCount;
+                        refundingCountList.Add(refundingCount);
+                        break;
+                    case 2:
+                        e.TotalValue = refundedCount;
+                        refundedCountList.Add(refundedCount);
+                        break;
+                    case 3:
+                        e.TotalValue = processCountList[i3] == 0 ? 0 : (double) refundingCountList[i3] / processCountList[i3];
+                        ++i3;
+                        break;
+                    case 4:
+                        e.TotalValue = processCountList[i4] == 0 ? 0 : (double)refundedCountList[i4] / processCountList[i4];
+                        ++i4;
+                        break;
+                    case 11:
+                        e.TotalValue = string.Format("{0}({1:P})", refundingCount, processes.Count == 0 ? 0.0 : (double) refundingCount / processes.Count);
+                        break;
+                    case 12:
+                        e.TotalValue = string.Format("{0}({1:P})", refundedCount, processes.Count == 0 ? 0.0 : (double) refundedCount / processes.Count);
+                        break;
+                }
             }
         };
     }).Bind(Model).GetHtml()
