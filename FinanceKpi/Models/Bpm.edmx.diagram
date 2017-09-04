@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="BPMDBModel.BPMSysUsers" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BPMDBModel.iAssetDetail" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="BPMDBModel.iAsset" Width="1.5" PointX="9.875" PointY="0.75" />
+        <EntityTypeShape EntityType="BPMDBModel.BPMSysMemberIDMap" Width="1.5" PointX="12.125" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

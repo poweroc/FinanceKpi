@@ -30,5 +30,6 @@ namespace FinanceKpi.Models
         public virtual DbSet<BPMSysUsers> BPMSysUsers { get; set; }
         public virtual DbSet<iAssetDetail> iAssetDetail { get; set; }
         public virtual DbSet<iAsset> iAsset { get; set; }
+        public virtual DbSet<BPMSysMemberIDMap> BPMSysMemberIDMap { get; set; }
     }
 }

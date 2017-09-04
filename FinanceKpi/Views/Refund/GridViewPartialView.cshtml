@@ -39,11 +39,13 @@
             column.SortIndex = 0;
         });
         settings.Columns.Add("ProcessName").Caption = "流程名";
+        settings.Columns.Add("AccountName").Caption = "提交人";
+        settings.Columns.Add("Department").Caption = "提交人部门";
         settings.Columns.Add("FinAccount").Caption = "处理人";
         settings.Columns.Add(column =>
         {
-            column.FieldName = "ReceiveTime";
-            column.Caption = "收到时间";
+            column.FieldName = "FinishTime";
+            column.Caption = "完成时间";
             column.SortOrder = ColumnSortOrder.Ascending;
             column.SortIndex = 1;
         });

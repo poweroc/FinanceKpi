@@ -8,6 +8,16 @@
 
 @model System.Collections.IEnumerable
 
+<script type="text/javascript">
+    function UpdateGridHeight() {
+        GridView.SetHeight(0);
+        var containerHeight = ASPxClientUtils.GetDocumentClientHeight();
+        if (document.body.scrollHeight > containerHeight)
+            containerHeight = document.body.scrollHeight;
+        GridView.SetHeight(containerHeight - 120);
+    }
+</script>
+
 @using (Html.BeginForm("Query", "Refund", FormMethod.Post))
 {
     <div>
@@ -41,3 +51,11 @@
 }
 
 @Html.Partial("GridViewPartialView", Model)
+<script type="text/javascript">
+    ASPxClientControl.GetControlCollection().ControlsInitialized.AddHandler(function (s, e) {
+        UpdateGridHeight();
+    });
+    ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(function (s, e) {
+        UpdateGridHeight();
+    });
+</script>
