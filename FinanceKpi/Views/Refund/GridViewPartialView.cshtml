@@ -63,9 +63,11 @@
         settings.GroupSummary.Add(SummaryItemType.Count, "ProcessName").DisplayFormat = "处理次数: {0}";
         settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "1", DisplayFormat = "退单次数: {0}"});
         settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunded", Tag = "2", DisplayFormat = "被退次数: {0}"});
-        settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "3", DisplayFormat = "退单率: {0:P}"});
+        var refundingRate = new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunding", Tag = "3", DisplayFormat = "退单率: {0:P}"};
+        settings.GroupSummary.Add(refundingRate);
         settings.GroupSummary.Add(new ASPxSummaryItem {SummaryType = SummaryItemType.Custom, FieldName = "Refunded", Tag = "4", DisplayFormat = "被退率: {0:P}"});
 
+        settings.GroupSummarySortInfo.AddRange(new ASPxGroupSummarySortInfo("AccountName", refundingRate));
         settings.BeforeColumnSortingGrouping += (sender, e) =>
         {
             processCountList.Clear();
