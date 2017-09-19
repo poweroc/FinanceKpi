@@ -232,6 +232,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\Attachment.cs" />
     <Compile Include="Models\Bpm.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

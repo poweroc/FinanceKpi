@@ -43,8 +43,8 @@ namespace FinanceKpi.Controllers
             var applyActions = new[] { "同意", "sysDirectSend" };
             var finAccount = new[] {"ynzhou", "zwle", "yfzhao", "sbzhao", "zhli"};
             var entities = new BPMDBEntities();
-            var refunds = (from step in entities.BPMInstProcSteps
-                where step.NodeName.StartsWith("财务检查") && finAccount.Contains(step.HandlerAccount) && !ignoreActions.Contains(step.SelAction) && step.FinishAt >= startDate && step.FinishAt < endDate
+            var refunds = (from step in entities.BPMInstProcSteps join task in entities.BPMInstTasks on step.TaskID equals task.TaskID 
+                where step.NodeName.StartsWith("财务检查") && finAccount.Contains(step.HandlerAccount) && !ignoreActions.Contains(step.SelAction) && step.FinishAt >= startDate && step.FinishAt < endDate && (task.State == "Running" || task.State == "Approved")
                 select new Refund
                 {
                     TaskID = step.TaskID,
