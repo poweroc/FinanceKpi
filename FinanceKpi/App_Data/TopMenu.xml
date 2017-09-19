@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <items>
   <item Text="退单率" NavigateUrl="~/Refund"/>
+  <item Text="附件数量" NavigateUrl="~/Attachment"/>
   <item Text="固定资产" NavigateUrl="~/Asset"/>
 </items>

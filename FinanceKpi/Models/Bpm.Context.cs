@@ -31,5 +31,7 @@ namespace FinanceKpi.Models
         public virtual DbSet<iAssetDetail> iAssetDetail { get; set; }
         public virtual DbSet<iAsset> iAsset { get; set; }
         public virtual DbSet<BPMSysMemberIDMap> BPMSysMemberIDMap { get; set; }
+        public virtual DbSet<iReimbursement> iReimbursement { get; set; }
+        public virtual DbSet<iOutside> iOutside { get; set; }
     }
 }

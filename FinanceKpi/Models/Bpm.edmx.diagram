@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="BPMDBModel.iAssetDetail" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="BPMDBModel.iAsset" Width="1.5" PointX="9.875" PointY="0.75" />
         <EntityTypeShape EntityType="BPMDBModel.BPMSysMemberIDMap" Width="1.5" PointX="12.125" PointY="0.75" />
+        <EntityTypeShape EntityType="BPMDBModel.iReimbursement" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="BPMDBModel.iOutside" Width="1.5" PointX="5.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

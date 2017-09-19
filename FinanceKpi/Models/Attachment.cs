@@ -12,6 +12,8 @@ namespace FinanceKpi.Models
         public DateTime Date { get; set; }
         public string Department { get; set; }
         public string AccountName { get; set; }
-        public int Count { get; set; }
+        public string Attach { get; set; }
+
+        public int Count => Attach?.Split(";".ToCharArray()).Length ?? 0;
     }
 }

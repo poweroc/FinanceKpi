@@ -190,6 +190,222 @@
           <Property Name="AccumulationItem" Type="varchar" MaxLength="50" />
           <Property Name="AccountCode" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="iOutside">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="int" Nullable="false" />
+          <Property Name="FormNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Account" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgentAccount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="AppLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="PayeeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="200" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="TravelsFormNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFlag" Type="nvarchar" MaxLength="5" />
+          <Property Name="PaymentTerm" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlolwanceTypes" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlolwanceType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="iFare" Type="money" />
+          <Property Name="iToll" Type="money" />
+          <Property Name="iParking" Type="money" />
+          <Property Name="iOthers" Type="money" />
+          <Property Name="iTotalAmount" Type="money" />
+          <Property Name="iCapital" Type="nvarchar" MaxLength="50" />
+          <Property Name="oSubsidy" Type="money" />
+          <Property Name="oFare" Type="money" />
+          <Property Name="oAirFare" Type="money" />
+          <Property Name="oHotelFee" Type="money" />
+          <Property Name="oFreight" Type="money" />
+          <Property Name="oPostage" Type="money" />
+          <Property Name="oOthers" Type="money" />
+          <Property Name="oTotalAmount" Type="money" />
+          <Property Name="oCapital" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attachment" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="SendDate" Type="datetime" />
+          <Property Name="PaidDate" Type="datetime" />
+          <Property Name="BankItem" Type="nvarchar" MaxLength="20" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="2000" />
+          <Property Name="HistoryTaskid" Type="nvarchar" MaxLength="50" />
+          <Property Name="HistoryTaskids" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayAmount" Type="money" />
+          <Property Name="FirstPayAmount" Type="money" />
+          <Property Name="PayCapital" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsBind" Type="nvarchar" MaxLength="10" />
+          <Property Name="TemporaryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayeeLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostID" Type="int" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ESOContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LLCContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractTaskID" Type="bigint" />
+          <Property Name="ContractTaskIDS" Type="bigint" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Secretary" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayeeAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="MailorNot" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActualAmount" Type="money" />
+          <Property Name="PZNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMBAContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EDPContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DBAContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="nvarchar" MaxLength="10" />
+          <Property Name="test" Type="money" />
+          <Property Name="cCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cVenCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cPayCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAFRProjectNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShortTerm" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="PayAmountRMB" Type="money" />
+          <Property Name="oMeal" Type="money" />
+          <Property Name="oHospitality" Type="money" />
+          <Property Name="BankID" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATENAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="CITYNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoucherNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Addition" Type="int" />
+          <Property Name="FinalRMB" Type="money" />
+          <Property Name="eInvoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="eInvoiceNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorEmail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BPMDB.dbo.iReimbursement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="iReimbursement">
+          <Key>
+            <PropertyRef Name="FormNo" />
+          </Key>
+          <Property Name="TaskID" Type="int" />
+          <Property Name="FormNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="100" />
+          <Property Name="AgentAccount" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="AppLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="AppPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentDepartment" Type="nvarchar" MaxLength="50" />
+          <Property Name="AgentPosition" Type="nvarchar" MaxLength="50" />
+          <Property Name="Referee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attribute" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentTerm" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentTerms" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsFlag" Type="nvarchar" MaxLength="5" />
+          <Property Name="Company" Type="nvarchar" MaxLength="100" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="200" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="150" />
+          <Property Name="PayeeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payee" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CurrencyTips" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalAmount" Type="money" />
+          <Property Name="TotalAmountRMB" Type="money" />
+          <Property Name="Capital" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="SendDate" Type="datetime" />
+          <Property Name="PaidDate" Type="datetime" />
+          <Property Name="ContractDept" Type="nvarchar" MaxLength="10" />
+          <Property Name="Flag" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankItem" Type="nvarchar" MaxLength="20" />
+          <Property Name="RefereeAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="Summary" Type="nvarchar(max)" />
+          <Property Name="HistoryTaskids" Type="nvarchar" MaxLength="50" />
+          <Property Name="Attachment" Type="nvarchar" MaxLength="4000" />
+          <Property Name="PayAmount" Type="money" />
+          <Property Name="FirstPayAmount" Type="money" />
+          <Property Name="PayCapital" Type="nvarchar" MaxLength="50" />
+          <Property Name="CjdAmount" Type="money" />
+          <Property Name="IsBind" Type="nvarchar" MaxLength="10" />
+          <Property Name="TemporaryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayeeLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostID" Type="int" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ESOContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LLCContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractTaskID" Type="bigint" />
+          <Property Name="ContractTaskIDS" Type="bigint" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Secretary" Type="nvarchar" MaxLength="50" />
+          <Property Name="MailorNot" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayeeAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PZNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRTaskID" Type="int" />
+          <Property Name="SATaskID" Type="int" />
+          <Property Name="SupplierName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="RType" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisplayPRNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LongTerm" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMBAContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EDPContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EDPFinalContract" Type="nvarchar" MaxLength="150" />
+          <Property Name="TaskID4Import" Type="int" />
+          <Property Name="DBAContractName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AcutalAmount" Type="money" />
+          <Property Name="Location" Type="nvarchar" MaxLength="10" />
+          <Property Name="test" Type="money" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="cCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cRdCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cVenCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartmentCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="cPayCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAFRProjectNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="ShortTerm" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankID" Type="nvarchar" MaxLength="50" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankItemName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SJTUAccountCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="VoucherNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Addition" Type="int" />
+          <Property Name="FinalRMB" Type="money" />
+          <Property Name="eInvoice" Type="nvarchar" MaxLength="50" />
+          <Property Name="eInoviceNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssetHave" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssetID" Type="int" />
+          <Property Name="AssetSupplyCompany" Type="nvarchar" MaxLength="50" />
+          <Property Name="AssetAmount" Type="money" />
+          <Property Name="SAAssetTaskID" Type="int" />
+        </EntityType>
         <EntityContainer Name="BPMDBModelStoreContainer">
           <EntitySet Name="BPMInstProcSteps" EntityType="Self.BPMInstProcSteps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BPMInstTasks" EntityType="Self.BPMInstTasks" Schema="dbo" store:Type="Tables" />
@@ -197,6 +413,115 @@
           <EntitySet Name="BPMSysUsers" EntityType="Self.BPMSysUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="iAsset" EntityType="Self.iAsset" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="iAssetDetail" EntityType="Self.iAssetDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iOutside" EntityType="Self.iOutside" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="iReimbursement" EntityType="Self.iReimbursement" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [iReimbursement].[TaskID] AS [TaskID], 
+    [iReimbursement].[FormNo] AS [FormNo], 
+    [iReimbursement].[Account] AS [Account], 
+    [iReimbursement].[AgentAccount] AS [AgentAccount], 
+    [iReimbursement].[Date] AS [Date], 
+    [iReimbursement].[AppLevel] AS [AppLevel], 
+    [iReimbursement].[AppName] AS [AppName], 
+    [iReimbursement].[AppID] AS [AppID], 
+    [iReimbursement].[AppDepartment] AS [AppDepartment], 
+    [iReimbursement].[AppPosition] AS [AppPosition], 
+    [iReimbursement].[AgentName] AS [AgentName], 
+    [iReimbursement].[AgentID] AS [AgentID], 
+    [iReimbursement].[AgentDepartment] AS [AgentDepartment], 
+    [iReimbursement].[AgentPosition] AS [AgentPosition], 
+    [iReimbursement].[Referee] AS [Referee], 
+    [iReimbursement].[Attribute] AS [Attribute], 
+    [iReimbursement].[Attribute1] AS [Attribute1], 
+    [iReimbursement].[PaymentTerm] AS [PaymentTerm], 
+    [iReimbursement].[PaymentTerms] AS [PaymentTerms], 
+    [iReimbursement].[IsFlag] AS [IsFlag], 
+    [iReimbursement].[Company] AS [Company], 
+    [iReimbursement].[BankName] AS [BankName], 
+    [iReimbursement].[BankAccount] AS [BankAccount], 
+    [iReimbursement].[PayeeID] AS [PayeeID], 
+    [iReimbursement].[Payee] AS [Payee], 
+    [iReimbursement].[Name] AS [Name], 
+    [iReimbursement].[Description] AS [Description], 
+    [iReimbursement].[CurrencyTips] AS [CurrencyTips], 
+    [iReimbursement].[Currency] AS [Currency], 
+    [iReimbursement].[TotalAmount] AS [TotalAmount], 
+    [iReimbursement].[TotalAmountRMB] AS [TotalAmountRMB], 
+    [iReimbursement].[Capital] AS [Capital], 
+    [iReimbursement].[RegisterDate] AS [RegisterDate], 
+    [iReimbursement].[SendDate] AS [SendDate], 
+    [iReimbursement].[PaidDate] AS [PaidDate], 
+    [iReimbursement].[ContractDept] AS [ContractDept], 
+    [iReimbursement].[Flag] AS [Flag], 
+    [iReimbursement].[BankItem] AS [BankItem], 
+    [iReimbursement].[RefereeAccount] AS [RefereeAccount], 
+    [iReimbursement].[Summary] AS [Summary], 
+    [iReimbursement].[HistoryTaskids] AS [HistoryTaskids], 
+    [iReimbursement].[Attachment] AS [Attachment], 
+    [iReimbursement].[PayAmount] AS [PayAmount], 
+    [iReimbursement].[FirstPayAmount] AS [FirstPayAmount], 
+    [iReimbursement].[PayCapital] AS [PayCapital], 
+    [iReimbursement].[CjdAmount] AS [CjdAmount], 
+    [iReimbursement].[IsBind] AS [IsBind], 
+    [iReimbursement].[TemporaryName] AS [TemporaryName], 
+    [iReimbursement].[PayeeLevel] AS [PayeeLevel], 
+    [iReimbursement].[MemberType] AS [MemberType], 
+    [iReimbursement].[CostType] AS [CostType], 
+    [iReimbursement].[CostID] AS [CostID], 
+    [iReimbursement].[ItemName] AS [ItemName], 
+    [iReimbursement].[ContractName] AS [ContractName], 
+    [iReimbursement].[ESOContractName] AS [ESOContractName], 
+    [iReimbursement].[LLCContractName] AS [LLCContractName], 
+    [iReimbursement].[ContractTaskID] AS [ContractTaskID], 
+    [iReimbursement].[ContractTaskIDS] AS [ContractTaskIDS], 
+    [iReimbursement].[CourseName] AS [CourseName], 
+    [iReimbursement].[Secretary] AS [Secretary], 
+    [iReimbursement].[MailorNot] AS [MailorNot], 
+    [iReimbursement].[PayeeAccount] AS [PayeeAccount], 
+    [iReimbursement].[ProjectNo] AS [ProjectNo], 
+    [iReimbursement].[PZNO] AS [PZNO], 
+    [iReimbursement].[PRTaskID] AS [PRTaskID], 
+    [iReimbursement].[SATaskID] AS [SATaskID], 
+    [iReimbursement].[SupplierName] AS [SupplierName], 
+    [iReimbursement].[Amount] AS [Amount], 
+    [iReimbursement].[RType] AS [RType], 
+    [iReimbursement].[DisplayPRNo] AS [DisplayPRNo], 
+    [iReimbursement].[LongTerm] AS [LongTerm], 
+    [iReimbursement].[EMBAContractName] AS [EMBAContractName], 
+    [iReimbursement].[EDPContractName] AS [EDPContractName], 
+    [iReimbursement].[EDPFinalContract] AS [EDPFinalContract], 
+    [iReimbursement].[TaskID4Import] AS [TaskID4Import], 
+    [iReimbursement].[DBAContractName] AS [DBAContractName], 
+    [iReimbursement].[AcutalAmount] AS [AcutalAmount], 
+    [iReimbursement].[Location] AS [Location], 
+    [iReimbursement].[test] AS [test], 
+    [iReimbursement].[Type] AS [Type], 
+    [iReimbursement].[cCode] AS [cCode], 
+    [iReimbursement].[cRdCode] AS [cRdCode], 
+    [iReimbursement].[cVenCode] AS [cVenCode], 
+    [iReimbursement].[DepartmentCode] AS [DepartmentCode], 
+    [iReimbursement].[cPayCode] AS [cPayCode], 
+    [iReimbursement].[CAFRProjectNo] AS [CAFRProjectNo], 
+    [iReimbursement].[InvoiceDate] AS [InvoiceDate], 
+    [iReimbursement].[ShortTerm] AS [ShortTerm], 
+    [iReimbursement].[BankID] AS [BankID], 
+    [iReimbursement].[StateName] AS [StateName], 
+    [iReimbursement].[CityName] AS [CityName], 
+    [iReimbursement].[BankItemName] AS [BankItemName], 
+    [iReimbursement].[SJTUAccountCode] AS [SJTUAccountCode], 
+    [iReimbursement].[VoucherNo] AS [VoucherNo], 
+    [iReimbursement].[Addition] AS [Addition], 
+    [iReimbursement].[FinalRMB] AS [FinalRMB], 
+    [iReimbursement].[eInvoice] AS [eInvoice], 
+    [iReimbursement].[eInoviceNum] AS [eInoviceNum], 
+    [iReimbursement].[VendorEmail] AS [VendorEmail], 
+    [iReimbursement].[AssetHave] AS [AssetHave], 
+    [iReimbursement].[AssetID] AS [AssetID], 
+    [iReimbursement].[AssetSupplyCompany] AS [AssetSupplyCompany], 
+    [iReimbursement].[AssetAmount] AS [AssetAmount], 
+    [iReimbursement].[SAAssetTaskID] AS [SAAssetTaskID]
+    FROM [dbo].[iReimbursement] AS [iReimbursement]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -313,6 +638,8 @@
           <EntitySet Name="iAssetDetail" EntityType="BPMDBModel.iAssetDetail" />
           <EntitySet Name="iAsset" EntityType="BPMDBModel.iAsset" />
           <EntitySet Name="BPMSysMemberIDMap" EntityType="BPMDBModel.BPMSysMemberIDMap" />
+          <EntitySet Name="iReimbursement" EntityType="BPMDBModel.iReimbursement" />
+          <EntitySet Name="iOutside" EntityType="BPMDBModel.iOutside" />
         </EntityContainer>
         <EntityType Name="iAssetDetail">
           <Key>
@@ -394,6 +721,220 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MemberFullName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="iReimbursement">
+          <Key>
+            <PropertyRef Name="FormNo" />
+          </Key>
+          <Property Name="TaskID" Type="Int32" />
+          <Property Name="FormNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgentAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="AppLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Referee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerms" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFlag" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyTips" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TotalAmountRMB" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Capital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="SendDate" Type="DateTime" Precision="3" />
+          <Property Name="PaidDate" Type="DateTime" Precision="3" />
+          <Property Name="ContractDept" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Flag" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankItem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RefereeAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryTaskids" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attachment" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="PayAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FirstPayAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PayCapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CjdAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IsBind" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TemporaryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostID" Type="Int32" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ESOContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LLCContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContractTaskID" Type="Int64" />
+          <Property Name="ContractTaskIDS" Type="Int64" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Secretary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MailorNot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PZNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRTaskID" Type="Int32" />
+          <Property Name="SATaskID" Type="Int32" />
+          <Property Name="SupplierName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayPRNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LongTerm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMBAContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EDPContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EDPFinalContract" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TaskID4Import" Type="Int32" />
+          <Property Name="DBAContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AcutalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="test" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cRdCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cVenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cPayCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAFRProjectNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="ShortTerm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankItemName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SJTUAccountCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Addition" Type="Int32" />
+          <Property Name="FinalRMB" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="eInvoice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eInoviceNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssetHave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssetID" Type="Int32" />
+          <Property Name="AssetSupplyCompany" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AssetAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SAAssetTaskID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="iOutside">
+          <Key>
+            <PropertyRef Name="TaskID" />
+          </Key>
+          <Property Name="TaskID" Type="Int32" Nullable="false" />
+          <Property Name="FormNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Account" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AgentAccount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="AppLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AppPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AgentPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TravelsFormNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsFlag" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlolwanceTypes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlolwanceType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="iFare" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="iToll" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="iParking" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="iOthers" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="iTotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="iCapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oSubsidy" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oFare" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oAirFare" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oHotelFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oFreight" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oPostage" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oOthers" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oTotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oCapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Attachment" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="SendDate" Type="DateTime" Precision="3" />
+          <Property Name="PaidDate" Type="DateTime" Precision="3" />
+          <Property Name="BankItem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryTaskid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HistoryTaskids" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FirstPayAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PayCapital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsBind" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TemporaryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MemberType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostID" Type="Int32" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ESOContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LLCContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContractTaskID" Type="Int64" />
+          <Property Name="ContractTaskIDS" Type="Int64" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Secretary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MailorNot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActualAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PZNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMBAContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EDPContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DBAContractName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="test" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="cCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cVenCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cPayCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAFRProjectNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShortTerm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="PayAmountRMB" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oMeal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="oHospitality" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BankID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CITYNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VoucherNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Addition" Type="Int32" />
+          <Property Name="FinalRMB" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="eInvoice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eInvoiceNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -589,6 +1130,222 @@
               <MappingFragment StoreEntitySet="BPMSysMemberIDMap">
                 <ScalarProperty Name="MemberFullName" ColumnName="MemberFullName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iReimbursement">
+            <EntityTypeMapping TypeName="BPMDBModel.iReimbursement">
+              <MappingFragment StoreEntitySet="iReimbursement">
+                <ScalarProperty Name="SAAssetTaskID" ColumnName="SAAssetTaskID" />
+                <ScalarProperty Name="AssetAmount" ColumnName="AssetAmount" />
+                <ScalarProperty Name="AssetSupplyCompany" ColumnName="AssetSupplyCompany" />
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+                <ScalarProperty Name="AssetHave" ColumnName="AssetHave" />
+                <ScalarProperty Name="VendorEmail" ColumnName="VendorEmail" />
+                <ScalarProperty Name="eInoviceNum" ColumnName="eInoviceNum" />
+                <ScalarProperty Name="eInvoice" ColumnName="eInvoice" />
+                <ScalarProperty Name="FinalRMB" ColumnName="FinalRMB" />
+                <ScalarProperty Name="Addition" ColumnName="Addition" />
+                <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+                <ScalarProperty Name="SJTUAccountCode" ColumnName="SJTUAccountCode" />
+                <ScalarProperty Name="BankItemName" ColumnName="BankItemName" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="ShortTerm" ColumnName="ShortTerm" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="CAFRProjectNo" ColumnName="CAFRProjectNo" />
+                <ScalarProperty Name="cPayCode" ColumnName="cPayCode" />
+                <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+                <ScalarProperty Name="cVenCode" ColumnName="cVenCode" />
+                <ScalarProperty Name="cRdCode" ColumnName="cRdCode" />
+                <ScalarProperty Name="cCode" ColumnName="cCode" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="test" ColumnName="test" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="AcutalAmount" ColumnName="AcutalAmount" />
+                <ScalarProperty Name="DBAContractName" ColumnName="DBAContractName" />
+                <ScalarProperty Name="TaskID4Import" ColumnName="TaskID4Import" />
+                <ScalarProperty Name="EDPFinalContract" ColumnName="EDPFinalContract" />
+                <ScalarProperty Name="EDPContractName" ColumnName="EDPContractName" />
+                <ScalarProperty Name="EMBAContractName" ColumnName="EMBAContractName" />
+                <ScalarProperty Name="LongTerm" ColumnName="LongTerm" />
+                <ScalarProperty Name="DisplayPRNo" ColumnName="DisplayPRNo" />
+                <ScalarProperty Name="RType" ColumnName="RType" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="SATaskID" ColumnName="SATaskID" />
+                <ScalarProperty Name="PRTaskID" ColumnName="PRTaskID" />
+                <ScalarProperty Name="PZNO" ColumnName="PZNO" />
+                <ScalarProperty Name="ProjectNo" ColumnName="ProjectNo" />
+                <ScalarProperty Name="PayeeAccount" ColumnName="PayeeAccount" />
+                <ScalarProperty Name="MailorNot" ColumnName="MailorNot" />
+                <ScalarProperty Name="Secretary" ColumnName="Secretary" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="ContractTaskIDS" ColumnName="ContractTaskIDS" />
+                <ScalarProperty Name="ContractTaskID" ColumnName="ContractTaskID" />
+                <ScalarProperty Name="LLCContractName" ColumnName="LLCContractName" />
+                <ScalarProperty Name="ESOContractName" ColumnName="ESOContractName" />
+                <ScalarProperty Name="ContractName" ColumnName="ContractName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="CostID" ColumnName="CostID" />
+                <ScalarProperty Name="CostType" ColumnName="CostType" />
+                <ScalarProperty Name="MemberType" ColumnName="MemberType" />
+                <ScalarProperty Name="PayeeLevel" ColumnName="PayeeLevel" />
+                <ScalarProperty Name="TemporaryName" ColumnName="TemporaryName" />
+                <ScalarProperty Name="IsBind" ColumnName="IsBind" />
+                <ScalarProperty Name="CjdAmount" ColumnName="CjdAmount" />
+                <ScalarProperty Name="PayCapital" ColumnName="PayCapital" />
+                <ScalarProperty Name="FirstPayAmount" ColumnName="FirstPayAmount" />
+                <ScalarProperty Name="PayAmount" ColumnName="PayAmount" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="HistoryTaskids" ColumnName="HistoryTaskids" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="RefereeAccount" ColumnName="RefereeAccount" />
+                <ScalarProperty Name="BankItem" ColumnName="BankItem" />
+                <ScalarProperty Name="Flag" ColumnName="Flag" />
+                <ScalarProperty Name="ContractDept" ColumnName="ContractDept" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Capital" ColumnName="Capital" />
+                <ScalarProperty Name="TotalAmountRMB" ColumnName="TotalAmountRMB" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="CurrencyTips" ColumnName="CurrencyTips" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Payee" ColumnName="Payee" />
+                <ScalarProperty Name="PayeeID" ColumnName="PayeeID" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="IsFlag" ColumnName="IsFlag" />
+                <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+                <ScalarProperty Name="PaymentTerm" ColumnName="PaymentTerm" />
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Attribute" ColumnName="Attribute" />
+                <ScalarProperty Name="Referee" ColumnName="Referee" />
+                <ScalarProperty Name="AgentPosition" ColumnName="AgentPosition" />
+                <ScalarProperty Name="AgentDepartment" ColumnName="AgentDepartment" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="AppPosition" ColumnName="AppPosition" />
+                <ScalarProperty Name="AppDepartment" ColumnName="AppDepartment" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="AppLevel" ColumnName="AppLevel" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AgentAccount" ColumnName="AgentAccount" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="FormNo" ColumnName="FormNo" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iOutside">
+            <EntityTypeMapping TypeName="BPMDBModel.iOutside">
+              <MappingFragment StoreEntitySet="iOutside">
+                <ScalarProperty Name="VendorEmail" ColumnName="VendorEmail" />
+                <ScalarProperty Name="eInvoiceNum" ColumnName="eInvoiceNum" />
+                <ScalarProperty Name="eInvoice" ColumnName="eInvoice" />
+                <ScalarProperty Name="FinalRMB" ColumnName="FinalRMB" />
+                <ScalarProperty Name="Addition" ColumnName="Addition" />
+                <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+                <ScalarProperty Name="CITYNAME" ColumnName="CITYNAME" />
+                <ScalarProperty Name="STATENAME" ColumnName="STATENAME" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="oHospitality" ColumnName="oHospitality" />
+                <ScalarProperty Name="oMeal" ColumnName="oMeal" />
+                <ScalarProperty Name="PayAmountRMB" ColumnName="PayAmountRMB" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="ShortTerm" ColumnName="ShortTerm" />
+                <ScalarProperty Name="CAFRProjectNo" ColumnName="CAFRProjectNo" />
+                <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+                <ScalarProperty Name="cPayCode" ColumnName="cPayCode" />
+                <ScalarProperty Name="cVenCode" ColumnName="cVenCode" />
+                <ScalarProperty Name="cCode" ColumnName="cCode" />
+                <ScalarProperty Name="test" ColumnName="test" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="DBAContractName" ColumnName="DBAContractName" />
+                <ScalarProperty Name="EDPContractName" ColumnName="EDPContractName" />
+                <ScalarProperty Name="EMBAContractName" ColumnName="EMBAContractName" />
+                <ScalarProperty Name="PZNO" ColumnName="PZNO" />
+                <ScalarProperty Name="ActualAmount" ColumnName="ActualAmount" />
+                <ScalarProperty Name="ProjectNo" ColumnName="ProjectNo" />
+                <ScalarProperty Name="MailorNot" ColumnName="MailorNot" />
+                <ScalarProperty Name="PayeeAccount" ColumnName="PayeeAccount" />
+                <ScalarProperty Name="Secretary" ColumnName="Secretary" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="ContractTaskIDS" ColumnName="ContractTaskIDS" />
+                <ScalarProperty Name="ContractTaskID" ColumnName="ContractTaskID" />
+                <ScalarProperty Name="LLCContractName" ColumnName="LLCContractName" />
+                <ScalarProperty Name="ESOContractName" ColumnName="ESOContractName" />
+                <ScalarProperty Name="ContractName" ColumnName="ContractName" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="CostID" ColumnName="CostID" />
+                <ScalarProperty Name="CostType" ColumnName="CostType" />
+                <ScalarProperty Name="MemberType" ColumnName="MemberType" />
+                <ScalarProperty Name="PayeeLevel" ColumnName="PayeeLevel" />
+                <ScalarProperty Name="TemporaryName" ColumnName="TemporaryName" />
+                <ScalarProperty Name="IsBind" ColumnName="IsBind" />
+                <ScalarProperty Name="PayCapital" ColumnName="PayCapital" />
+                <ScalarProperty Name="FirstPayAmount" ColumnName="FirstPayAmount" />
+                <ScalarProperty Name="PayAmount" ColumnName="PayAmount" />
+                <ScalarProperty Name="HistoryTaskids" ColumnName="HistoryTaskids" />
+                <ScalarProperty Name="HistoryTaskid" ColumnName="HistoryTaskid" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="BankItem" ColumnName="BankItem" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="oCapital" ColumnName="oCapital" />
+                <ScalarProperty Name="oTotalAmount" ColumnName="oTotalAmount" />
+                <ScalarProperty Name="oOthers" ColumnName="oOthers" />
+                <ScalarProperty Name="oPostage" ColumnName="oPostage" />
+                <ScalarProperty Name="oFreight" ColumnName="oFreight" />
+                <ScalarProperty Name="oHotelFee" ColumnName="oHotelFee" />
+                <ScalarProperty Name="oAirFare" ColumnName="oAirFare" />
+                <ScalarProperty Name="oFare" ColumnName="oFare" />
+                <ScalarProperty Name="oSubsidy" ColumnName="oSubsidy" />
+                <ScalarProperty Name="iCapital" ColumnName="iCapital" />
+                <ScalarProperty Name="iTotalAmount" ColumnName="iTotalAmount" />
+                <ScalarProperty Name="iOthers" ColumnName="iOthers" />
+                <ScalarProperty Name="iParking" ColumnName="iParking" />
+                <ScalarProperty Name="iToll" ColumnName="iToll" />
+                <ScalarProperty Name="iFare" ColumnName="iFare" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="AlolwanceType" ColumnName="AlolwanceType" />
+                <ScalarProperty Name="AlolwanceTypes" ColumnName="AlolwanceTypes" />
+                <ScalarProperty Name="PaymentTerm" ColumnName="PaymentTerm" />
+                <ScalarProperty Name="IsFlag" ColumnName="IsFlag" />
+                <ScalarProperty Name="TravelsFormNo" ColumnName="TravelsFormNo" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Payee" ColumnName="Payee" />
+                <ScalarProperty Name="PayeeID" ColumnName="PayeeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="AgentPosition" ColumnName="AgentPosition" />
+                <ScalarProperty Name="AgentDepartment" ColumnName="AgentDepartment" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+                <ScalarProperty Name="AppPosition" ColumnName="AppPosition" />
+                <ScalarProperty Name="AppDepartment" ColumnName="AppDepartment" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="AppLevel" ColumnName="AppLevel" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AgentAccount" ColumnName="AgentAccount" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="FormNo" ColumnName="FormNo" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/_rootLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "附件数量";
+}
+
+@model System.Collections.IEnumerable
+
+<script type="text/javascript">
+    function UpdateGridHeight() {
+        GridView.SetHeight(0);
+        var containerHeight = ASPxClientUtils.GetDocumentClientHeight();
+        if (document.body.scrollHeight > containerHeight)
+            containerHeight = document.body.scrollHeight;
+        GridView.SetHeight(containerHeight - 120);
+    }
+</script>
+
+<table>
+    <tr>
+        <td>
+            @using (Html.BeginForm("Query", "Attachment", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <td>
+                            <Label style="display: inline-block">起始日期</Label>
+                        </td>
+                        <td>
+                            @Html.DevExpress().DateEdit(settings =>
+                       {
+                           settings.Name = "StartDate";
+                           settings.Properties.DisplayFormatString = "D";
+                           settings.Date = (DateTime)Session["StartDate"];
+                       }).GetHtml()
+                        </td>
+                        <td>
+                            <Label style="display: inline-block">截止日期</Label>
+                        </td>
+
+                        <td>
+                            @Html.DevExpress().DateEdit(settings =>
+                       {
+                           settings.Name = "EndDate";
+                           settings.Properties.DisplayFormatString = "D";
+                           settings.Date = (DateTime)Session["EndDate"];
+                       }).GetHtml()
+                        </td>
+                        <td>
+                            @Html.DevExpress().Button(settings =>
+                            {
+                                settings.Name = "QueryButton";
+                                settings.Text = "查询";
+                                settings.UseSubmitBehavior = true;
+                            }).GetHtml()
+                        </td>
+                    </tr>
+                </table>
+            }
+        </td>
+        <td>
+            @using (Html.BeginForm("ExportTo", "Attachment", FormMethod.Post))
+            {
+                <div style="display: inline-block">
+                    @Html.DevExpress().Button(settings =>
+                    {
+                        settings.Name = "ExportButton";
+                        settings.Text = "导出";
+                        settings.UseSubmitBehavior = true;
+                    }).GetHtml()
+                </div>
+            }
+        </td>
+    </tr>
+</table>
+
+
+@Html.Partial("GridViewPartialView", Model)
+<script type="text/javascript">
+    ASPxClientControl.GetControlCollection().ControlsInitialized.AddHandler(function (s, e) {
+        UpdateGridHeight();
+    });
+    ASPxClientControl.GetControlCollection().BrowserWindowResized.AddHandler(function (s, e) {
+        UpdateGridHeight();
+    });
+</script>

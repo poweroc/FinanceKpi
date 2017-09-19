@@ -215,6 +215,8 @@
     <Content Include="Views\Shared\_mainLayout.cshtml" />
     <Content Include="Views\Shared\_rootLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Attachment\Index.cshtml" />
+    <Content Include="Views\Attachment\GridViewPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -227,6 +229,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\AttachmentController.cs" />
     <Compile Include="Controllers\RefundController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -266,6 +269,12 @@
     <Compile Include="Models\iAssetDetail.cs">
       <DependentUpon>Bpm.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\iOutside.cs">
+      <DependentUpon>Bpm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\iReimbursement.cs">
+      <DependentUpon>Bpm.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\NorthwindContext.cs" />
     <Compile Include="Models\NorthwindDataProvider.cs" />
     <Compile Include="Models\Refund.cs" />
@@ -273,6 +282,7 @@
     <Compile Include="Report\AssetReport.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controllers\AttachmentGridViewHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
