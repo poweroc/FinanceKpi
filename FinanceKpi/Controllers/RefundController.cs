@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DevExpress.Data;
 using DevExpress.Web.Mvc;
 using FinanceKpi.Models;
 
@@ -30,7 +31,8 @@ namespace FinanceKpi.Controllers
         {
             Session["StartDate"] = EditorExtension.GetValue<DateTime>("StartDate");
             Session["EndDate"] = EditorExtension.GetValue<DateTime>("EndDate");
-            return View("Index", GetRefunds());
+            Session["model"] = GetRefunds();
+            return View("Index", Session["model"]);
         }
 
         private List<Refund> GetRefunds()
@@ -51,7 +53,8 @@ namespace FinanceKpi.Controllers
                     ProcessName = step.ProcessName,
                     FinishTime = (DateTime) step.FinishAt,
                     Refunded = step.RecedeFromStep == null ? "正常" : "被退",
-                    Refunding = applyActions.Contains(step.SelAction) ? "正常" : "退单"
+                    Refunding = applyActions.Contains(step.SelAction) ? "正常" : "退单",
+                    Comments = step.Comments
                 }).ToList();
             foreach (var refund in refunds)
             {
@@ -63,6 +66,11 @@ namespace FinanceKpi.Controllers
                     {
                         refund.AccountName = user.DisplayName;
                     }
+                    var agent = entities.BPMSysUsers.FirstOrDefault(u => u.Account == task.AgentAccount);
+                    if (agent != null)
+                    {
+                        refund.AgentName = agent.DisplayName;
+                    }
                     var member = entities.BPMSysMemberIDMap.FirstOrDefault(m => m.ID == task.OwnerPositionID);
                     if (member != null)
                     {
@@ -72,6 +80,47 @@ namespace FinanceKpi.Controllers
                 }
             }
             return refunds;
+        }
+
+        [HttpPost]
+        public ActionResult ExportTo()
+        {
+            return GridViewExtension.ExportToXlsx(GetGridSettings(), Session["model"]);
+        }
+        // Returns the settings of the exported GridView. 
+        private GridViewSettings GetGridSettings()
+        {
+            var settings = new GridViewSettings();
+            settings.Name = "GridView";
+            settings.CallbackRouteValues = new { Controller = "Refund", Action = "GridViewPartial" };
+
+            // Export-specific settings  
+            settings.SettingsExport.ExportSelectedRowsOnly = false;
+            settings.SettingsExport.FileName = "Report.xlsx";
+
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "TaskID";
+                column.SortOrder = ColumnSortOrder.Ascending;
+                column.SortIndex = 0;
+            });
+            settings.Columns.Add("ProcessName").Caption = "流程名";
+            settings.Columns.Add("AccountName").Caption = "提交人";
+            settings.Columns.Add("Department").Caption = "提交人部门";
+            settings.Columns.Add("AgentName").Caption = "代填人";
+            settings.Columns.Add("FinAccount").Caption = "处理人";
+            settings.Columns.Add(column =>
+            {
+                column.FieldName = "FinishTime";
+                column.Caption = "完成时间";
+                column.SortOrder = ColumnSortOrder.Ascending;
+                column.SortIndex = 1;
+            });
+            settings.Columns.Add("Refunding").Caption = "退单";
+            settings.Columns.Add("Refunded").Caption = "被退";
+            settings.Columns.Add("Comments");
+
+            return settings;
         }
     }
 }

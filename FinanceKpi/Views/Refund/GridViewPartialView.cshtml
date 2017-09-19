@@ -41,6 +41,7 @@
         settings.Columns.Add("ProcessName").Caption = "流程名";
         settings.Columns.Add("AccountName").Caption = "提交人";
         settings.Columns.Add("Department").Caption = "提交人部门";
+        settings.Columns.Add("AgentName").Caption = "代填人";
         settings.Columns.Add("FinAccount").Caption = "处理人";
         settings.Columns.Add(column =>
         {
@@ -51,6 +52,7 @@
         });
         settings.Columns.Add("Refunding").Caption = "退单";
         settings.Columns.Add("Refunded").Caption = "被退";
+        settings.Columns.Add("Comments");
 
         settings.TotalSummary.Add(SummaryItemType.Count, "ProcessName").DisplayFormat = "总处理次数: {0}";
         var taskCountTotalItem = new ASPxSummaryItem { SummaryType = SummaryItemType.Custom, FieldName = "TaskID", Tag = "10", DisplayFormat = "总流程数量: {0}" };

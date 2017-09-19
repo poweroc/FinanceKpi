@@ -11,10 +11,12 @@ namespace FinanceKpi.Models
         public int TaskID { get; set; }
         public string Department { get; set; }
         public string AccountName { get; set; }
+        public string AgentName { get; set; }
         public DateTime FinishTime { get; set; }
         public string ProcessName { get; set; }
         public string FinAccount { get; set; }
         public string Refunding { get; set; }
         public string Refunded { get; set; }
+        public string Comments { get; set; }
     }
 }
